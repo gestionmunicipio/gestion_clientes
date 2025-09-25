@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-4">
+  <h2>{% trans "Importar Clientes" %}</h2>
+  <a href="{% static 'plantillas/plantilla_clientes.xlsx' %}" class="btn btn-outline-secondary mb-3">
+    <i class="fas fa-download"></i> {% trans "Descargar plantilla" %}
+  </a>
+
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+  {% endfor %}
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      {{ form.archivo.label_tag }}
+      {{ form.archivo }}
+      {% for err in form.archivo.errors %}
+        <div class="text-danger">{{ err }}</div>
+      {% endfor %}
+    </div>
+
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger">
+        {% for err in form.non_field_errors %}
+          <div>{{ err }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary">
+      <i class="fas fa-file-import"></i> {% trans "Importar" %}
+    </button>
+  </form>
+
+  {% if exitosos is not None %}
+  <hr>
+  <div>
+    <p>✅ Clientes creados: {{ exitosos }}</p>
+    <p>⚠️ Errores: {{ fallidos }}</p>
+  </div>
+
+  {% if errores %}
+  <table class="table table-sm table-bordered">
+    <thead class="thead-light">
+      <tr><th>Fila</th><th>Error</th></tr>
+    </thead>
+    <tbody>
+      {% for err in errores %}
+      <tr>
+        <td>{{ err.fila }}</td>
+        <td>{{ err.error }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+  {% endif %}
+</div>
+{% endblock %}

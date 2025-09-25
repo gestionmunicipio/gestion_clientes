@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-11 col-md-4">
+    <form method="post" class="border p-4 rounded bg-light shadow-sm">
+      {% csrf_token %}
+      <h4 class="text-center mb-4">{% trans "Acceso al sistema" %}</h4>
+
+      {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+      {% endif %}
+
+      <div class="mb-3">
+        <label for="id_username" class="form-label">{% trans "Usuario" %}</label>
+        <input type="text" name="username" id="id_username"
+               class="form-control" required autofocus>
+      </div>
+      <div class="mb-3">
+        <label for="id_password" class="form-label">{% trans "Contraseña" %}</label>
+        <input type="password" name="password" id="id_password"
+               class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">{% trans "Ingresar" %}</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

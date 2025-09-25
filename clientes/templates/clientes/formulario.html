@@ -1,0 +1,169 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+
+{% block title %}
+  {% if form.instance.pk %}
+    {% trans "Editar Cliente" %}
+  {% else %}
+    {% trans "Nuevo Cliente" %}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+<form method="post" id="cliente-form">
+  {% csrf_token %}
+  {{ cliente_form.as_p }}
+
+  <!-- Sección Cliente -->
+  <fieldset class="border p-3 mb-4 rounded">
+    <legend class="float-none w-auto px-2">{% trans "Datos del Cliente" %}</legend>
+    {{ form.as_p }}
+  </fieldset>
+
+  <!-- Direcciones -->
+  {% if direccion_formset %}
+    {% if not form.instance.pk %}
+      <!-- ➕ Nuevo cliente -->
+      <fieldset class="border p-3 rounded">
+        <legend class="float-none w-auto px-2">{% trans "Dirección principal" %}</legend>
+
+        {{ direccion_formset.management_form }}
+        {% for form in direccion_formset %}
+          <div class="border p-3 mb-3 rounded bg-light">
+            <div class="mb-3">{{ form.tipo.label_tag }} {{ form.tipo }}</div>
+            <div class="mb-3">{{ form.calle.label_tag }} {{ form.calle }}</div>
+            <div class="mb-3">{{ form.numero.label_tag }} {{ form.numero }}</div>
+            <div class="mb-3">{{ form.comuna.label_tag }} {{ form.comuna }}</div>
+            <div class="mb-3">{{ form.ciudad.label_tag }} {{ form.ciudad }}</div>
+            <div class="mb-3">{{ form.codigo_postal.label_tag }} {{ form.codigo_postal }}</div>
+            <div class="mb-3">{{ form.pais.label_tag }} {{ form.pais }}</div>
+            <div class="mb-3">{{ form.observacion.label_tag }} {{ form.observacion }}</div>
+          </div>
+        {% endfor %}
+      </fieldset>
+    {% else %}
+      <!-- 🔍 Cliente existente -->
+      <fieldset class="border p-3 rounded">
+        <legend class="float-none w-auto px-2">{% trans "Direcciones Registradas" %}</legend>
+        <table>
+          <thead>
+            <tr>
+              <th>{% trans "Tipo" %}</th>
+              <th>{% trans "Calle" %}</th>
+              <th>{% trans "N°" %}</th>
+              <th>{% trans "Comuna" %}</th>
+              <th>{% trans "Ciudad" %}</th>
+              <th>{% trans "Postal" %}</th>
+              <th>{% trans "País" %}</th>
+              <th>{% trans "Acciones" %}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for direccion in direcciones %}
+            <tr class="{% cycle 'par' 'impar' %}">
+              <td>{{ direccion.tipo }}</td>
+              <td>{{ direccion.calle }}</td>
+              <td>{{ direccion.numero }}</td>
+              <td>{{ direccion.comuna }}</td>
+              <td>{{ direccion.ciudad }}</td>
+              <td>{{ direccion.codigo_postal }}</td>
+              <td>{{ direccion.pais }}</td>
+              <td>
+                <a href="{% url 'editar_direccion' direccion.pk %}" class="btn btn-sm btn-outline-primary">
+                  <i class="fas fa-pen-to-square"></i> {% trans "Editar" %}
+                </a>
+                <a href="{% url 'eliminar_direccion' direccion.pk %}" class="btn btn-sm btn-outline-danger ms-2">
+                  <i class="fas fa-trash-alt"></i> {% trans "Eliminar" %}
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        {% if cliente.id %}
+          <a href="{% url 'agregar_direccion' cliente.id %}" class="btn btn-primary mt-2">
+            <i class="fas fa-location-dot"></i> {% trans "Nueva Dirección" %}
+          </a>
+        {% endif %}
+        
+      </fieldset>
+    {% endif %}
+  {% endif %}
+
+  <!-- Botones -->
+  <div class="mt-4 d-flex justify-content-start">
+    <button type="submit" class="btn btn-primary">
+      <i class="fas fa-save"></i> {% trans "Guardar" %}
+    </button>
+    <a href="{% url 'lista_clientes' %}" class="btn btn-danger ms-2">
+      {% trans "Cancelar" %}
+    </a>
+  </div>
+
+</form>
+
+
+{% if messages %}
+  <div id="django-messages" style="display:none;">
+    {% for msg in messages %}
+      <div data-tag="{{ msg.tags }}" data-msg="{{ msg }}"></div>
+    {% endfor %}
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('django-messages');
+      container.querySelectorAll('div').forEach(div => {
+        Swal.fire({
+          icon: div.dataset.tag.includes('success') ? 'success' : 'error',
+          title: div.dataset.msg,
+          showConfirmButton: false,
+          timer: 2500
+        });
+      });
+    });
+  </script>
+{% endif %}
+
+<!-- 07.08.2025
+{% if direccion_formset.non_form_errors %}
+  <script>
+    Swal.fire({
+      title: 'Validación de direcciones',
+      text: '{{ direccion_formset.non_form_errors.0 }}',
+      icon: 'warning',
+      confirmButtonText: 'Entendido'
+    });
+  </script>
+{% endif %}
+-->
+
+<!--
+{% if not form.instance.pk %}
+<script>
+  document
+    .getElementById('cliente-form')
+    .addEventListener('submit', function(e) {
+      const agente = document.getElementById('id_agente')?.value.trim();
+      const direcciones = Array.from(
+        document.querySelectorAll('[id^="id_direcciones-"][id$="-calle"]')
+      ).filter(input => input.value.trim() !== '');
+
+      if (!agente || direcciones.length === 0) {
+        //alert('Debes seleccionar un agente y agregar al menos una dirección. Si no deseas continuar, presiona “Cancelar”.');
+        Swal.fire({
+          title: 'Atención',
+          text: 'Debes 12233 seleccionar un agente y agregar al menos una dirección. Si no deseas continuar, presiona "Cancelar".',
+          icon: 'warning',
+          //showCancelButton: true,
+          confirmButtonText: 'Aceptar',
+          //cancelButtonText: 'Cancelar'
+        });
+        e.preventDefault();
+      }
+    });
+</script>
+{% endif %}
+-->
+
+{% endblock %}

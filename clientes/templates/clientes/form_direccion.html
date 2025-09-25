@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+
+{% block title %}
+  {% if modo == 'editar' %}
+    {% trans "Editar Dirección" %}
+  {% else %}
+    {% trans "Nueva Dirección" %}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+<h3 class="mb-3">
+  {% if modo == 'editar' %}
+    {% trans "Editar Dirección de" %} {{ cliente.nombre_razon_social }}
+  {% else %}
+    {% trans "Nueva Dirección para" %} {{ cliente.nombre_razon_social }}
+  {% endif %}
+</h3>
+
+<form method="post">
+  {% csrf_token %}
+  <fieldset class="border p-3 rounded">
+    <legend class="float-none w-auto px-2">{% trans "Dirección" %}</legend>
+    {{ form.as_p }}
+  </fieldset>
+
+  <div class="mt-4 d-flex justify-content-start">
+    <button type="submit" class="btn btn-primary">{% trans "Guardar" %}</button>
+    <a href="{% url 'editar_cliente' cliente.id %}" class="btn btn-success ms-2">{% trans "Cancelar" %}</a>
+  </div>
+</form>
+{% endblock %}

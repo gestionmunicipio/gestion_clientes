@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% block title %}{% trans "Lista de Clientes" %}{% endblock %}
+{% block content %}
+<a href="{% url 'crear_cliente' %}" class="btn btn-primary mb-3">{% trans "Nuevo Cliente" %}</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>{% trans "Nombre" %}</th>
+      <th>{% trans "Rut" %}</th>
+      <th>{% trans "Email" %}</th>
+      <th>{% trans "Teléfono" %}</th>
+      <th>{% trans "Tipo de Entidad" %}</th>
+      {% if es_supervisor %}
+        <th>Agente</th>
+      {% endif %}
+      <th>{% trans "Acciones" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cliente in clientes %}
+    <tr class="{% cycle 'par' 'impar' %}">
+      <td>{{ cliente.nombre_razon_social }}</td>
+      <td>{{ cliente.rut }}</td>
+      <td>{{ cliente.email }}</td>
+      <td>{{ cliente.telefono }}</td>
+      <td>{{ cliente.tipo_entidad }}</td>
+      {% if es_supervisor %}
+        <td><i class="fas fa-user-tie text-primary me-1"></i> {{ cliente.agente }}</td>
+      {% endif %}
+      <td>
+        <div class="d-flex gap-1">
+          <a href="{% url 'editar_cliente' cliente.id %}" class="btn btn-sm btn-outline-primary">
+            <i class="fas fa-pen-to-square"></i> {% trans "Editar" %}  
+          </a>
+          <a href="{% url 'confirmar_eliminar_cliente' cliente.pk %}" class="btn btn-sm btn-outline-danger ms-2">
+            <i class="fas fa-trash-alt"></i> {% trans "Eliminar" %}
+          </a>
+        </div>        
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if messages %}
+  <div id="django-messages" style="display:none;">
+    {% for msg in messages %}
+      <div data-tag="{{ msg.tags }}" data-msg="{{ msg }}"></div>
+    {% endfor %}
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('django-messages');
+      container.querySelectorAll('div').forEach(div => {
+        Swal.fire({
+          icon: div.dataset.tag.includes('success') ? 'success' : 'error',
+          title: div.dataset.msg,
+          showConfirmButton: false,
+          timer: 2500
+        });
+      });
+    });
+  </script>
+{% endif %}
+
+{% endblock %}

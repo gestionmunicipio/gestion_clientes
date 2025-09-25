@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Eliminar Dirección" %}{% endblock %}
+
+{% block content %}
+<h3 class="mb-4">{% trans "Eliminar Dirección" %}</h3>
+<p>{% trans "¿Estás seguro que deseas eliminar esta dirección de" %} <strong>{{ cliente.nombre_razon_social }}</strong>?</p>
+
+<fieldset class="border p-3 rounded">
+  <legend class="float-none w-auto px-2">{% trans "Resumen" %}</legend>
+  <p><strong>{% trans "Tipo" %}:</strong> {{ direccion.tipo }}</p>
+  <p><strong>{% trans "Dirección" %}:</strong> {{ direccion.calle }} {{ direccion.numero }}, {{ direccion.comuna }}</p>
+  <p><strong>{% trans "Ciudad" %}:</strong> {{ direccion.ciudad }} - {{ direccion.codigo_postal }}</p>
+  <p><strong>{% trans "País" %}:</strong> {{ direccion.pais }}</p>
+</fieldset>
+
+<form method="post" class="mt-4">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">{% trans "Eliminar" %}</button>
+  <a href="{% url 'editar_cliente' cliente.pk %}" class="btn btn-secondary ms-2">{% trans "Cancelar" %}</a>
+</form>
+{% endblock %}

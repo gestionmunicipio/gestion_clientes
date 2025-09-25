@@ -1,0 +1,51 @@
+/*---- Estilos Generales CSS ----
+    *: Se configura el estilo de todos los elementos de la págona web
+    #: Se configura el estilo de ID
+    .: Se configura el estilo de las clases
+*/
+
+.header-layout {
+  background-color: #0044cc;
+  color: white;
+}
+
+.footer-layout {
+  background-color: #0551a1;
+  color: #dee2e8;
+}
+
+.btn-verde {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+  color: white;
+}
+
+.btn-verde:hover {
+  background-color: #45A049;
+  border-color: #45A049;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+/*  margin-top: 1.5rem;  // Define el espacio de arriba */ 
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: left;
+}
+thead {
+  background-color: #1565C0;
+  color: white;
+}
+tr.par {
+  background-color: #f9f9f9;
+}
+tr.impar {
+  background-color: #eaeaea;
+}
+tr:hover {
+  background-color: #d6eaf8;
+}

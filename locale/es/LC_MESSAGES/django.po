@@ -1,0 +1,385 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-15 16:23-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\clientes\models.py:20 .\clientes\templates\clientes\dashboard.html:20
+#: .\templates\login.html:16
+msgid "Usuario"
+msgstr ""
+
+#: .\clientes\models.py:23 .\clientes\templates\clientes\lista.html:10
+msgid "Nombre"
+msgstr ""
+
+#: .\clientes\models.py:24 .\clientes\models.py:45
+#: .\clientes\templates\clientes\lista.html:11
+msgid "Rut"
+msgstr ""
+
+#: .\clientes\models.py:25 .\clientes\models.py:46
+#: .\clientes\templates\clientes\consulta.html:22
+msgid "Correo Electrónico"
+msgstr ""
+
+#: .\clientes\models.py:26 .\clientes\models.py:47
+#: .\clientes\templates\clientes\confirmar_eliminar_cliente.html:15
+#: .\clientes\templates\clientes\lista.html:13
+msgid "Teléfono"
+msgstr "Phone"
+
+#: .\clientes\models.py:37 .\clientes\models.py:43
+#: .\clientes\templates\clientes\lista.html:14
+msgid "Tipo de Entidad"
+msgstr ""
+
+#: .\clientes\models.py:44
+#: .\clientes\templates\clientes\confirmar_eliminar_cliente.html:13
+msgid "Nombre o Razón Social"
+msgstr ""
+
+#: .\clientes\models.py:48
+msgid "Sitio Web"
+msgstr ""
+
+#: .\clientes\models.py:49
+msgid "Activo"
+msgstr ""
+
+#: .\clientes\models.py:50 .\clientes\models.py:82
+msgid "Observación"
+msgstr ""
+
+#: .\clientes\models.py:62 .\clientes\models.py:69 .\clientes\models.py:75
+msgid "Tipo de Dirección"
+msgstr ""
+
+#: .\clientes\models.py:63
+msgid "Descripción"
+msgstr ""
+
+#: .\clientes\models.py:70
+msgid "Tipos de Direcciones"
+msgstr ""
+
+#: .\clientes\models.py:76 .\clientes\templates\clientes\formulario.html:52
+msgid "Calle"
+msgstr ""
+
+#: .\clientes\models.py:77
+msgid "Número"
+msgstr ""
+
+#: .\clientes\models.py:78 .\clientes\templates\clientes\consulta.html:23
+#: .\clientes\templates\clientes\formulario.html:54
+msgid "Comuna"
+msgstr ""
+
+#: .\clientes\models.py:79
+#: .\clientes\templates\clientes\confirmar_eliminar_direccion.html:14
+#: .\clientes\templates\clientes\consulta.html:24
+#: .\clientes\templates\clientes\formulario.html:55
+msgid "Ciudad"
+msgstr ""
+
+#: .\clientes\models.py:80
+msgid "Código Potal"
+msgstr ""
+
+#: .\clientes\models.py:81
+#: .\clientes\templates\clientes\confirmar_eliminar_direccion.html:15
+#: .\clientes\templates\clientes\consulta.html:26
+#: .\clientes\templates\clientes\formulario.html:57
+msgid "País"
+msgstr ""
+
+#: .\clientes\models.py:88
+#: .\clientes\templates\clientes\confirmar_eliminar_direccion.html:13
+#: .\clientes\templates\clientes\consulta.html:25
+#: .\clientes\templates\clientes\form_direccion.html:24
+msgid "Dirección"
+msgstr ""
+
+#: .\clientes\models.py:89
+msgid "Direcciones"
+msgstr ""
+
+#: .\clientes\templates\clientes\confirmar_eliminar_cliente.html:4
+msgid "Eliminar Cliente"
+msgstr ""
+
+#: .\clientes\templates\clientes\confirmar_eliminar_cliente.html:7
+msgid "Confirmar eliminación"
+msgstr ""
+
+#: .\clientes\templates\clientes\confirmar_eliminar_cliente.html:8
+msgid "¿Estás seguro que deseas eliminar al cliente"
+msgstr ""
+
+#: .\clientes\templates\clientes\confirmar_eliminar_cliente.html:11
+#: .\clientes\templates\clientes\confirmar_eliminar_direccion.html:11
+msgid "Resumen"
+msgstr ""
+
+#: .\clientes\templates\clientes\confirmar_eliminar_cliente.html:12
+msgid "Tipo de Persona"
+msgstr ""
+
+#: .\clientes\templates\clientes\confirmar_eliminar_cliente.html:20
+#: .\clientes\templates\clientes\confirmar_eliminar_direccion.html:20
+#: .\clientes\templates\clientes\formulario.html:76
+#: .\clientes\templates\clientes\lista.html:38
+msgid "Eliminar"
+msgstr ""
+
+#: .\clientes\templates\clientes\confirmar_eliminar_cliente.html:21
+#: .\clientes\templates\clientes\confirmar_eliminar_direccion.html:21
+#: .\clientes\templates\clientes\consulta.html:50
+#: .\clientes\templates\clientes\form_direccion.html:30
+#: .\clientes\templates\clientes\formulario.html:100
+msgid "Cancelar"
+msgstr ""
+
+#: .\clientes\templates\clientes\confirmar_eliminar_direccion.html:4
+#: .\clientes\templates\clientes\confirmar_eliminar_direccion.html:7
+msgid "Eliminar Dirección"
+msgstr ""
+
+#: .\clientes\templates\clientes\confirmar_eliminar_direccion.html:8
+msgid "¿Estás seguro que deseas eliminar esta dirección de"
+msgstr ""
+
+#: .\clientes\templates\clientes\confirmar_eliminar_direccion.html:12
+#: .\clientes\templates\clientes\formulario.html:51
+msgid "Tipo"
+msgstr ""
+
+#: .\clientes\templates\clientes\consulta.html:4
+msgid "Consulta de Clientes"
+msgstr ""
+
+#: .\clientes\templates\clientes\consulta.html:7
+msgid "Consulta de Clientes y Direcciones"
+msgstr ""
+
+#: .\clientes\templates\clientes\consulta.html:11
+msgid "Exportar a Excel"
+msgstr ""
+
+#: .\clientes\templates\clientes\consulta.html:14
+msgid "Exportar a PDF"
+msgstr ""
+
+#: .\clientes\templates\clientes\consulta.html:21
+msgid "Cliente"
+msgstr ""
+
+#: .\clientes\templates\clientes\consulta.html:42
+msgid "Sin direcciones registradas"
+msgstr ""
+
+#: .\clientes\templates\clientes\dashboard.html:6
+msgid "Dashboard de Supervisión"
+msgstr ""
+
+#: .\clientes\templates\clientes\dashboard.html:9
+#: .\clientes\templates\clientes\dashboard.html:29
+msgid "Total Clientes"
+msgstr ""
+
+#: .\clientes\templates\clientes\dashboard.html:10
+msgid "Sin Agente"
+msgstr ""
+
+#: .\clientes\templates\clientes\dashboard.html:11
+msgid "Activos"
+msgstr ""
+
+#: .\clientes\templates\clientes\dashboard.html:12
+msgid "Inactivos"
+msgstr ""
+
+#: .\clientes\templates\clientes\dashboard.html:17
+msgid "Última Importación"
+msgstr ""
+
+#: .\clientes\templates\clientes\dashboard.html:18
+msgid "Archivo"
+msgstr ""
+
+#: .\clientes\templates\clientes\dashboard.html:19
+msgid "Fecha"
+msgstr ""
+
+#: .\clientes\templates\clientes\dashboard.html:21
+msgid "Éxitos"
+msgstr ""
+
+#: .\clientes\templates\clientes\dashboard.html:22
+msgid "Errores"
+msgstr ""
+
+#: .\clientes\templates\clientes\dashboard.html:27
+msgid "Clientes por Agente"
+msgstr ""
+
+#: .\clientes\templates\clientes\dashboard.html:29
+msgid "Agente"
+msgstr ""
+
+#: .\clientes\templates\clientes\form_direccion.html:6
+msgid "Editar Dirección"
+msgstr ""
+
+#: .\clientes\templates\clientes\form_direccion.html:8
+#: .\clientes\templates\clientes\formulario.html:86
+msgid "Nueva Dirección"
+msgstr ""
+
+#: .\clientes\templates\clientes\form_direccion.html:15
+msgid "Editar Dirección de"
+msgstr ""
+
+#: .\clientes\templates\clientes\form_direccion.html:17
+msgid "Nueva Dirección para"
+msgstr ""
+
+#: .\clientes\templates\clientes\form_direccion.html:29
+#: .\clientes\templates\clientes\formulario.html:97
+msgid "Guardar"
+msgstr ""
+
+#: .\clientes\templates\clientes\formulario.html:6
+msgid "Editar Cliente"
+msgstr ""
+
+#: .\clientes\templates\clientes\formulario.html:8
+#: .\clientes\templates\clientes\lista.html:5 .\templates\layout.html:68
+msgid "Nuevo Cliente"
+msgstr ""
+
+#: .\clientes\templates\clientes\formulario.html:19
+msgid "Datos del Cliente"
+msgstr ""
+
+#: .\clientes\templates\clientes\formulario.html:28
+msgid "Dirección principal"
+msgstr ""
+
+#: .\clientes\templates\clientes\formulario.html:47
+msgid "Direcciones Registradas"
+msgstr ""
+
+#: .\clientes\templates\clientes\formulario.html:53
+msgid "N°"
+msgstr ""
+
+#: .\clientes\templates\clientes\formulario.html:56
+msgid "Postal"
+msgstr ""
+
+#: .\clientes\templates\clientes\formulario.html:58
+#: .\clientes\templates\clientes\lista.html:18
+msgid "Acciones"
+msgstr ""
+
+#: .\clientes\templates\clientes\formulario.html:73
+#: .\clientes\templates\clientes\lista.html:35
+msgid "Editar"
+msgstr ""
+
+#: .\clientes\templates\clientes\importar_clientes.html:8
+#: .\templates\layout.html:81
+msgid "Importar Clientes"
+msgstr ""
+
+#: .\clientes\templates\clientes\importar_clientes.html:10
+msgid "Descargar plantilla"
+msgstr ""
+
+#: .\clientes\templates\clientes\importar_clientes.html:37
+msgid "Importar"
+msgstr ""
+
+#: .\clientes\templates\clientes\lista.html:3
+msgid "Lista de Clientes"
+msgstr ""
+
+#: .\clientes\templates\clientes\lista.html:12
+msgid "Email"
+msgstr ""
+
+#: .\clientes\views.py:81
+msgid "Cliente y direcciones guardados correctamente."
+msgstr ""
+
+#: .\clientes\views.py:109
+msgid "Cliente actualizado correctamente."
+msgstr ""
+
+#: .\clientes\views.py:164
+msgid "Dirección agregada correctamente."
+msgstr ""
+
+#: .\clientes\views.py:187
+msgid "Dirección actualizada correctamente."
+msgstr ""
+
+#: .\clientes\views.py:212
+msgid "La dirección fue eliminada correctamente."
+msgstr ""
+
+#: .\templates\layout.html:11
+msgid "Gestión Clientes"
+msgstr ""
+
+#: .\templates\layout.html:47
+msgid "Gestión de Clientes"
+msgstr ""
+
+#: .\templates\layout.html:65
+msgid "Inicio"
+msgstr ""
+
+#: .\templates\layout.html:72
+msgid "Consultas"
+msgstr ""
+
+#: .\templates\layout.html:77
+msgid "Estadísticas"
+msgstr ""
+
+#: .\templates\layout.html:110
+msgid "Hola"
+msgstr ""
+
+#: .\templates\layout.html:113
+msgid "Cerrar sesión"
+msgstr ""
+
+#: .\templates\login.html:9
+msgid "Acceso al sistema"
+msgstr ""
+
+#: .\templates\login.html:21
+msgid "Contraseña"
+msgstr ""
+
+#: .\templates\login.html:25
+msgid "Ingresar"
+msgstr ""

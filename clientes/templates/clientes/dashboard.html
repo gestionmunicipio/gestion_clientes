@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>📊 {% trans "Dashboard de Supervisión" %}</h2>
+
+  <div class="row text-center mb-4">
+    <div class="col-md-3"><div class="card"><div class="card-body"><h5>{% trans "Total Clientes" %}</h5><h4><p>{{ total_clientes }}</p></h4></div></div></div>
+    <div class="col-md-3"><div class="card"><div class="card-body"><h5>{% trans "Sin Agente" %}</h5><p>{{ sin_agente }}</p></div></div></div>
+    <div class="col-md-3"><div class="card"><div class="card-body"><h5>{% trans "Activos" %}</h5><p>{{ activos }}</p></div></div></div>
+    <div class="col-md-3"><div class="card"><div class="card-body"><h5>{% trans "Inactivos" %}</h5><p>{{ inactivos }}</p></div></div></div>
+  </div>
+
+  {% if ultima_importacion %}
+  <div class="mb-4">
+    <h5>📁 {% trans "Última Importación" %}</h5>
+    <p><strong>{% trans "Archivo" %}:</strong> {{ ultima_importacion.archivo.name }}<br>
+       <strong>{% trans "Fecha" %}:</strong> {{ ultima_importacion.fecha|date:"d M Y H:i" }}<br>
+       <strong>{% trans "Usuario" %}:</strong> {{ ultima_importacion.usuario }}<br>
+       <strong>{% trans "Éxitos" %}:</strong> {{ ultima_importacion.exitosos }} |
+       <strong>{% trans "Errores" %}:</strong> {{ ultima_importacion.fallidos }}</p>
+  </div>
+  {% endif %}
+
+  <div class="mb-4">
+    <h5>👥 {% trans "Clientes por Agente" %}</h5>
+    <table class="table table-bordered table-sm">
+      <thead><tr><th>{% trans "Agente" %}</th><th>{% trans "Total Clientes" %}</th></tr></thead>
+      <tbody>
+        {% for nombre, cantidad in clientes_por_agente.items %}
+        <tr><td>{{ nombre }}</td><td>{{ cantidad }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
